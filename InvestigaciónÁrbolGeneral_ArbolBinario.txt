@@ -1,0 +1,81 @@
+UNIVERSITARIA AGUSTINIANA
+
+
+
+
+TECNOLOGÍA EN DESARROLLO DE SOFTWARE
+
+
+
+ESTRUCTURA DE DATOS AVANZADA
+
+
+
+JAVIER ANDRÉS AVILA SALCEDO
+
+
+
+
+EDWAR YAYDIBER DÍAZ VÁSQUEZ
+
+
+
+5 DE NOVIEMBRE DE 2026
+
+
+
+
+ÁRBOLES BINARIOS Y ÁRBOLES GENERALES
+INVESTIGACIÓN
+
+¿Qué es un árbol general en estructura de datos avanzada?
+Un árbol general es una estructura de datos no lineal y jerárquica (es como un árbol genealógico o las carpetas de nuestro computador) donde cada nodo puede tener cualquier cantidad de hijos, a diferencia de los árboles binarios tradicionales donde los nodos solo pueden tener máximo dos (izquierdo y derecho).
+Sus partes principales son:
+* Raíz (Root): El nodo principal que está en la parte superior y del cual se desprende toda la estructura.
+* Nodos: Los elementos que guardan la información.
+* Padres e Hijos: Relaciones de dependencia; un nodo puede ser padre de varios hijos y a la vez hijo de otro.
+* Hojas (Leaf): Los nodos que no tienen hijos, es decir, el final de una rama.
+¿Para qué sirve?
+Se usa un montón en situaciones del mundo real donde las jerarquías son libres o variables, por ejemplo:
+* El explorador de archivos de nuestro PC: Una carpeta principal tiene carpetas dentro, y esas carpetas tienen más archivos o subcarpetas sin un límite fijo.
+* Estructuras HTML o XML: Las etiquetas de una página web se anidan unas dentro de otras.
+* Organigramas de empresas: Un jefe tiene varios empleados a cargo, y cada uno puede tener su propio equipo.
+
+¿Cómo se implementa en C++?
+Como cada nodo puede tener una cantidad variable de hijos, en C++ lo más práctico no es usar punteros fijos (como izquierda o derecha), sino meterlos en una lista dinámica o un vector de punteros dentro de la estructura del nodo.
+
+Se vería más o menos así:
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct NodoArbol {
+    int dato;
+    vector<NodoArbol*> hijos; // Aquí por ejemplo guardaríamos los punteros a todos los hijos
+};
+
+¿Qué es un árbol binario en estructura de datos avanzada? 
+Un árbol binario es una estructura de datos jerárquica muy parecida al árbol general que vimos antes, con la gran diferencia de que cada nodo puede tener máximo dos hijos, los cuales se conocen tradicionalmente como el hijo izquierdo y el hijo derecho.
+Sus partes clave son:
+* Raíz (Root): El nodo inicial en la parte superior.
+* Nodo Izquierdo y Nodo Derecho: Las ramificaciones que se desprenden de cada padre (si no tienen hijos, apuntan a nullptr).
+* Hojas: Los nodos que no tienen descendientes a ningún lado.
+
+¿Para qué sirve?
+Los árboles binarios son súper importantes en programación porque permiten organizar la información de forma eficiente para hacer búsquedas rápidas. De aquí nacen variantes muy famosas como los Árboles Binarios de Búsqueda (BST), donde los elementos menores se van a la izquierda y los mayores a la derecha, logrando encontrar datos en tiempos logarítmicos O (log n) en lugar de recorrer toda la lista uno por uno.
+¿Cómo se implementa en C++?
+A diferencia del árbol general que usaba un vector por la cantidad indefinida de hijos, aquí la estructura es fija y se arman con dos punteros explícitos dentro de un nodo:
+
+#include <iostream>
+
+using namespace std;
+
+struct NodoBinario {
+    int dato;
+    NodoBinario* izq;  // Puntero al subárbol izquierdo
+    NodoBinario* der;  // Puntero al subárbol derecho
+};
+
+
